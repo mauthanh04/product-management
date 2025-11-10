@@ -1,0 +1,37 @@
+extends ../../layouts/default.pug
+ 
+block main
+    h1 Danh sách sản phẩm
+
+    table.table.table-hover.table-sm
+        thead
+            tr
+                th STT
+                th Hình ảnh
+                th Tiêu đề
+                th Giá
+                th Trạng thái
+                th Hành động
+        tbody
+            tr
+                td 1
+                td
+                    img(src="https://cdn2.cellphones.com.vn/358x/media/catalog/product/i/p/iphone_17_pro_512gb.jpg", alt="Sản phẩm 1", width="100px", height="auto")
+                td Iphone 17 Pro Max Cam
+                td $999
+                td
+                    a(href="#" class="badge badge-success") Hoạt động
+                td
+                    button(class="btn btn-warning btn-sm") Sửa
+                    button(class="btn btn-danger btn-sm ml-1") Xóa
+            tr
+                td 2
+                td
+                    img(src="https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/MGFW4?wid=2000&hei=2000&fmt=jpeg&qlt=90&.v=T1M2dk54bEp0RUU5dnZTeUlLMWsvbWorYzFkTG5HaE9wejd5WUxYZjRMK2VqbEpIZ1hib0hHcnQwY0VMaEZFTm1IbFlxR0k1YzVUMzl0UUlrbDZyRUE", alt="Sản phẩm 1", width="100px", height="auto")
+                td Iphone 17 Pro Max Trắng
+                td $999
+                td
+                    a(href="#" class="badge badge-danger") Dừng hoạt động
+                td
+                    button(class="btn btn-warning btn-sm") Sửa
+                    button(class="btn btn-danger btn-sm ml-1") Xóa

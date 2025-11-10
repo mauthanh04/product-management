@@ -5,6 +5,7 @@ const database = require('./config/database');
 database.connect();
 
 const routes = require('./routes/client/index.route');
+const routesAdmin = require('./routes/admin/index.route');
 
 const app = express();
 const port = process.env.PORT;
@@ -16,6 +17,7 @@ app.use(express.static('public'));
 
 //routes
 routes(app);
+routesAdmin(app);
 
 app.listen(port, () => {
     console.log(`Đã chạy thành công vào cổng ${port}`);

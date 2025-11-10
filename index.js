@@ -1,10 +1,10 @@
 const express = require('express');
-const mogoose = require('mongoose');
 require('dotenv').config();
 
-const routes = require('./routes/client/index.route');
+const database = require('./config/database');
+database.connect();
 
-mogoose.connect(process.env.MONGO_URL)
+const routes = require('./routes/client/index.route');
 
 const app = express();
 const port = process.env.PORT;

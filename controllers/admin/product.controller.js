@@ -45,7 +45,7 @@ module.exports.index = async (req, res) => {
     });
 };
 
-// [GET] /admin/products/change-status/:status/:id
+// [PATCH] /admin/products/change-status/:status/:id
 module.exports.changeStatus = async (req, res) => {
     const status = req.params.status;
     const id = req.params.id;
@@ -56,6 +56,26 @@ module.exports.changeStatus = async (req, res) => {
         { _id: id },
         { status: status }
     );
+
+    res.redirect(refererUrl);
+};
+
+// [PATCH] /admin/products/change-multi
+module.exports.changeMulti = async (req, res) => {
+    const type = req.body.type;
+    const ids = req.body.ids.split(",");
+    const refererUrl = req.header('Referer');
+
+    switch (type) {
+        case "active":
+            await product.updateMany({ _id: { $in: ids } }, { status: "active" });
+            break;
+        case "inactive":
+            await product.updateMany({ _id: { $in: ids } }, { status: "inactive" });
+            break;
+        default:
+            break;
+    }
 
     res.redirect(refererUrl);
 };
